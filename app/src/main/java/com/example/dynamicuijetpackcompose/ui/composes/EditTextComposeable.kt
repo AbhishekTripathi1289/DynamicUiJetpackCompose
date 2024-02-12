@@ -9,6 +9,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -55,7 +56,8 @@ fun EditTextComposable(modifier: Modifier = Modifier,formItem: FormItem, isdataV
         }, modifier = Modifier
             .fillMaxWidth()
             .weight(0.7f),
-            isError = (isdataValid.value == DataValidation.CHECK && typedText.value.isDataInValid(formItem.validation))
+            isError = (isdataValid.value == DataValidation.CHECK && typedText.value.isDataInValid(formItem.validation)),
+            colors = TextFieldDefaults.textFieldColors(textColor = Color.Black, containerColor = Color.White)
             )
 
     }

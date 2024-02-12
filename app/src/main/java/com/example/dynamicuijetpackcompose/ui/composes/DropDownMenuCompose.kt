@@ -12,6 +12,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.RadioButton
+import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
@@ -47,15 +48,19 @@ fun DropDownMenuCompose(modifier: Modifier = Modifier, formItem: FormItem,
     }
 
     Column(modifier = Modifier
-        .fillMaxWidth().background(Color.White)
+        .fillMaxWidth()
+        .background(Color.White)
         .padding(bottom = 20.dp)) {
         Box(
             modifier = modifier
-                .fillMaxWidth().background(Color.White)
+                .fillMaxWidth()
+                .background(Color.White)
 
 
         ) {
-            ExposedDropdownMenuBox(modifier = Modifier.fillMaxWidth().background(Color.White),
+            ExposedDropdownMenuBox(modifier = Modifier
+                .fillMaxWidth()
+                .background(Color.White),
                 expanded = expanded.value,
                 onExpandedChange = {
                     expanded.value = !expanded.value
@@ -69,7 +74,8 @@ fun DropDownMenuCompose(modifier: Modifier = Modifier, formItem: FormItem,
                     readOnly = true,
                     trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded.value) },
                     modifier = Modifier
-                        .menuAnchor().background(Color.White)
+                        .menuAnchor()
+                        .background(Color.White)
                         .fillMaxWidth()
                 )
 
@@ -101,10 +107,11 @@ fun DropDownMenuCompose(modifier: Modifier = Modifier, formItem: FormItem,
                 var list = if(selectedText.value.equals("Male")) maleData else femaleData
                 list.value.forEach{
                     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.SpaceAround) {
-                        Text(text = it, textAlign = TextAlign.Center)
+                        Text(text = it, textAlign = TextAlign.Center, color = Color.Black)
                         RadioButton(selected = it == selected.value,
                             onClick = { selected.value = it
-                                    callback.invoke(selectedText.value, selected.value)})
+                                    callback.invoke(selectedText.value, selected.value)},
+                            colors = RadioButtonDefaults.colors(selectedColor = Color.Blue, unselectedColor = Color.Black))
                     }
                 }
             }
