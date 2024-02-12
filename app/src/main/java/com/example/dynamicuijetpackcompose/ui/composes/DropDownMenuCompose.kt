@@ -1,5 +1,6 @@
 package com.example.dynamicuijetpackcompose.ui.composes
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -46,15 +47,15 @@ fun DropDownMenuCompose(modifier: Modifier = Modifier, formItem: FormItem,
     }
 
     Column(modifier = Modifier
-        .fillMaxWidth()
+        .fillMaxWidth().background(Color.White)
         .padding(bottom = 20.dp)) {
         Box(
             modifier = modifier
-                .fillMaxWidth()
+                .fillMaxWidth().background(Color.White)
 
 
         ) {
-            ExposedDropdownMenuBox(modifier = Modifier.fillMaxWidth(),
+            ExposedDropdownMenuBox(modifier = Modifier.fillMaxWidth().background(Color.White),
                 expanded = expanded.value,
                 onExpandedChange = {
                     expanded.value = !expanded.value
@@ -68,22 +69,23 @@ fun DropDownMenuCompose(modifier: Modifier = Modifier, formItem: FormItem,
                     readOnly = true,
                     trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded.value) },
                     modifier = Modifier
-                        .menuAnchor()
+                        .menuAnchor().background(Color.White)
                         .fillMaxWidth()
                 )
 
                 ExposedDropdownMenu(
                     expanded = expanded.value,
-                    onDismissRequest = { expanded.value = false },
+                    onDismissRequest = { expanded.value = false },modifier = Modifier.background(
+                        Color.White)
                 ) {
                     formItem.dropdown_content.forEach { item ->
                         DropdownMenuItem(
-                            text = { Text(text = item) },
+                            text = { Text(text = item, color = Color.Black) },
                             onClick = {
                                 selectedText.value = item
                                 expanded.value = false
                                 callback.invoke(item, selected.value)
-                            }
+                            }, modifier = Modifier.background(Color.White)
                         )
                     }
                 }

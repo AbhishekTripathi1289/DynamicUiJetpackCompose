@@ -3,6 +3,7 @@ package com.example.dynamicuijetpackcompose.ui.composes
 import android.app.Activity
 import android.util.Log
 import android.widget.Toast
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn

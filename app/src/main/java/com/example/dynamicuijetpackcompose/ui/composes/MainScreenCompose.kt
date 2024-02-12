@@ -1,6 +1,7 @@
 package com.example.dynamicuijetpackcompose.ui.composes
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -29,7 +30,7 @@ import com.example.starbuckapp.viewmodel.DynamicUiViewModel
 @Composable
 fun MainScreenCompose(viewModel: DynamicUiViewModel) {
 
-    Scaffold( topBar = {
+    Scaffold(topBar = {
         TopAppBar(title = {
                 Text(
                     text = stringResource(R.string.dynamic_ui),
@@ -53,7 +54,7 @@ fun MainScreenCompose(viewModel: DynamicUiViewModel) {
             is DataState.Success ->
             {
                 /*Load our UI*/
-                RootCompose(modifier = Modifier.padding(paddingvalues).fillMaxWidth().padding(16.dp), viewModel = viewModel, dynamicUiResponse = result.data)
+                RootCompose(modifier = Modifier.background(Color.White).padding(paddingvalues).fillMaxWidth().padding(16.dp), viewModel = viewModel, dynamicUiResponse = result.data)
             }
             is DataState.Error ->
             {
