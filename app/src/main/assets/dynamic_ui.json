@@ -1,0 +1,55 @@
+{
+  "form": [
+    {
+      "type": "TextView",
+      "label": "Title",
+      "text": "Welcome to the Demo Form!"
+    },
+    {
+      "type": "EditText",
+      "label": "Full Name",
+      "hint": "Enter your full name",
+      "validation": {
+        "required": true,
+        "minLength": 3
+      }
+    },
+    {
+      "type": "TextView",
+      "label": "Subject",
+      "text": "Jetpack Compose Ui"
+    },
+    {
+      "type": "EditText",
+      "label": "Email",
+      "hint": "Enter your email",
+      "validation": {
+        "required": true,
+        "pattern": "^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$"
+      }
+    },
+    {
+      "type": "ImageView",
+      "imageUrl": "https://miro.medium.com/v2/resize:fit:1400/1*YMO9lbZTAkvLVuASXFbRIA.png",
+      "altText": "Sample Image",
+      "imageHeight": 200
+    },
+    {
+      "type": "DropDown",
+      "label": "Gender",
+      "dropdown_content": ["Select","Male", "Female"],
+      "validation": {
+        "required": true
+      }
+    },
+    {
+      "type": "Button",
+      "label": "Submit",
+      "action": {
+        "type": "API",
+        "endpoint": "https://reqres.in/api/users?page=2",
+        "method": "GET"
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">DynamicUiJetpackCompose</string>
+    <string name="dynamic_ui">Dynamic Ui</string>
+</resources>
